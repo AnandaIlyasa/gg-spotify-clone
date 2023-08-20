@@ -1,0 +1,167 @@
+.main-page {
+    background-color: black;
+    padding: 1rem;
+    height: 100vh;
+    display: flex;
+    gap: 1rem;
+}
+
+#side-nav,
+.main-content {
+    background-color: rgb(30, 30, 30);
+    color: white;
+    padding: 1rem;
+}
+
+#side-nav {
+    display: flex;
+    flex-direction: column;
+    width: 24vw;
+}
+
+#side-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-home, .playlist-item {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.3rem;
+}
+
+#nav-drawer {
+    background-color: rgb(30, 30, 30);
+    display: none;
+}
+
+.nav-home span {
+    font-size: xx-large;
+}
+
+.playlist-item {
+    align-items: center;
+}
+
+.playlist-item:hover, .nav-home:hover {
+    background-color: rgb(50, 50, 50);
+    cursor: pointer;
+}
+
+.playlist-item img {
+    width: 2.2rem;
+    border-radius: 0.2rem;
+}
+
+.playlist-item img, .nav-home span {
+    margin-right: 1rem;
+}
+
+.main-content {
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.search {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+}
+
+#user-logout-full {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#user-logout-hidden {
+    display: none;
+}
+
+.profile-picture {
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.content-container {
+    overflow-y: scroll;
+    display: grid;
+    gap: 1rem;
+    max-height: 90%;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 1.5rem;
+}
+
+.content-container::-webkit-scrollbar {
+    display: none;
+}
+
+.song-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    color: white;
+    width: 100%;
+    gap: 0.5rem;
+    background-color: rgb(20, 20, 20);
+    border-radius: 0.5rem;
+}
+
+.song-item img {
+    max-height :10rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.song-item p, .song-item h3 {
+    line-height: 1.5rem;
+    max-width: 10rem;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+.song-item:hover {
+    background-color: rgb(50, 50, 50);
+    cursor: pointer;
+}
+
+@media all and (max-width: 1000px) {
+    #side-nav {
+        display: none;
+    }
+
+    #nav-drawer {
+        display: block;
+    }
+
+    .main-page {
+        gap: 0;
+    }
+
+    .content-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #user-logout-full {
+        display: none;
+    }
+
+    #user-logout-hidden {
+        display: inline;
+    }
+}
+
+@media all and (max-width: 670px) {
+    .content-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
