@@ -8,7 +8,6 @@ import {
   } from '@chakra-ui/react'
 
 export default function UserLogout({ profile }) {
-    console.log("profile: ", profile)
     return (
         <>
             <div id="user-logout-full">
