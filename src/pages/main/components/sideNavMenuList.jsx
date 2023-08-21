@@ -1,6 +1,7 @@
 import { Text } from "@chakra-ui/react";
 import { useContext } from "react";
 import { SideNavContext } from "..";
+import PlaylistEditPopoverForm from "./editPlaylistForm";
 
 export default function SideNavMenuList({ onClose }) {
     const {playlists, selectedNav, setSelectedNav} = useContext(SideNavContext);
@@ -31,7 +32,9 @@ export default function SideNavMenuList({ onClose }) {
                         className="playlist-item"
                     >
                         <img src={playlistItem.images[0]?.url} alt="" />
-                        <Text noOfLines={1} fontWeight="bold">{playlistItem.name}</Text>
+                        <PlaylistEditPopoverForm playlist={playlistItem}>
+                            <Text noOfLines={1} fontWeight="bold">{playlistItem.name}</Text>
+                        </PlaylistEditPopoverForm>
                     </li>
                 ))}
             </ul>

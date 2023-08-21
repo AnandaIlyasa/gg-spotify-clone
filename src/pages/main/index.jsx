@@ -35,7 +35,9 @@ export default function Main() {
             .then(data => {
                 setShowedTracks(data);
             })
-            .catch(e => console.log(e))
+            .catch(e => {
+                console.error(e);
+            })
         } else {
             fetch(
                 `${process.env.REACT_APP_API_URL}/v1/playlists/${selectedNav}/tracks`,
@@ -45,7 +47,9 @@ export default function Main() {
                 data.items = data.items.map(items => items.track);
                 setShowedTracks(data);
             })
-            .catch(e => console.log(e))
+            .catch(e => {
+                console.error(e);
+            })
         }
     }, [selectedNav, accessToken]);
 
