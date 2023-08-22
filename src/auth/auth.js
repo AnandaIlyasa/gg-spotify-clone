@@ -8,6 +8,8 @@ const scopes = [
   "user-read-email",
   "user-modify-playback-state",
   "user-top-read",
+  "playlist-modify-public",
+  "playlist-modify-private",
 ];
 
 export const implicitAuth = () => {

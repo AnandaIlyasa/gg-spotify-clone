@@ -19,7 +19,7 @@ export default function SideNavMenuList({ onClose }) {
                 <Text fontWeight="bold">Home</Text>
             </div>
             <ul>
-                {playlists?.items?.map(playlistItem => (
+                {playlists?.items?.map((playlistItem, idx) => (
                     <li
                         key={playlistItem.id}
                         style={{backgroundColor: selectedNav === playlistItem.id ? "rgb(50, 50, 50)" : ""}}
@@ -32,7 +32,7 @@ export default function SideNavMenuList({ onClose }) {
                         className="playlist-item"
                     >
                         <img src={playlistItem.images[0]?.url} alt="" />
-                        <PlaylistEditPopoverForm playlist={playlistItem}>
+                        <PlaylistEditPopoverForm playlist={playlistItem} index={idx}>
                             <Text noOfLines={1} fontWeight="bold">{playlistItem.name}</Text>
                         </PlaylistEditPopoverForm>
                     </li>

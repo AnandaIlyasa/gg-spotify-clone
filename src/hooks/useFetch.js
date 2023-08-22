@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const useFetch = (initialUrl, opt) => {
   const [data, setData] = useState({});
@@ -9,7 +9,7 @@ const useFetch = (initialUrl, opt) => {
 
   console.log("useFetch is called");
 
-  const callback = () => {
+  const callback = useCallback(() => {
     if (!url) return;
 
     const fetchData = async () => {
@@ -32,9 +32,9 @@ const useFetch = (initialUrl, opt) => {
     };
 
     fetchData();
-  };
+  }, [options, url]);
 
-  useEffect(callback, [options, url]);
+  useEffect(callback, [options, url, callback]);
 
   return [data, setData, error, isLoading];
 };

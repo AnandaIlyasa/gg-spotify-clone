@@ -18,7 +18,7 @@ export default function Main() {
         `${process.env.REACT_APP_API_URL}/v1/me`, 
         { method: "GET", headers: { Authorization: `Bearer ${accessToken}` } }
     );
-    const [playlists] = useFetch(
+    const [playlists, setPlaylists] = useFetch(
         `${process.env.REACT_APP_API_URL}/v1/me/playlists`, 
         { method: "GET", headers: { Authorization: `Bearer ${accessToken}` } }
     );
@@ -55,7 +55,7 @@ export default function Main() {
 
     return (
         <div className="main-page">
-            <SideNavContext.Provider value={{playlists, selectedNav, setSelectedNav}}>
+            <SideNavContext.Provider value={{playlists, setPlaylists, selectedNav, setSelectedNav}}>
                 <SideNavDrawer/>
                 <div id="side-nav">
                     <SideNavMenuList/>
